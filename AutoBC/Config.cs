@@ -9,8 +9,7 @@ namespace AutoBC
 {
 	public class Config
 	{
-		public List<BCMessage> messages = new List<BCMessage> {};
-
+		public List<BCMessage> messages = new List<BCMessage> { new BCMessage("[Broadcast] This is a test broadcast, the owner has yet to set up this plugin!", new Color(255, 255, 255)) };
 
 			public int bcInterval = 3; //MINUTES
 
@@ -27,12 +26,13 @@ namespace AutoBC
 				{
 					Config config = new Config();
 
-					if (File.Exists(filepath))
+					if (!File.Exists(filepath))
 					{
-						config = JsonConvert.DeserializeObject<Config>(File.ReadAllText(filepath));
+						File.WriteAllText(filepath, JsonConvert.SerializeObject(config, Formatting.Indented));
 					}
+					config = JsonConvert.DeserializeObject<Config>(File.ReadAllText(filepath));
+					
 
-					File.WriteAllText(filepath, JsonConvert.SerializeObject(config, Formatting.Indented));
 					return config;
 				}
 				catch (Exception ex)
