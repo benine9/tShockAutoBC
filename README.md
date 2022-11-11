@@ -1,9 +1,9 @@
-### Average's Auto Broadcast
+# Average's Auto Broadcast
 Support me & this plugin's (along with several others) development on Ko.Fi: [Here!](https://ko-fi.com/averageterraria)
 
 A super simple and lightweight tShock V5 plugin. It outputs a message to all players at a user-defined interval. You can output as many messages as you would like and also set an RGB message color code per broadcast.
 
-## Config Explained
+### Config Explained
 (tshock/AAutoBC.json)
 
 ```json
