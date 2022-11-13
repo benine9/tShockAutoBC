@@ -16,6 +16,9 @@ A super simple and lightweight tShock V5 plugin. It outputs a message to all pla
         "G": 255,
         "B": 255
       }
+      "Commands": {
+        "time noon"
+      }
     }
   ],
   "bcInterval": 3
