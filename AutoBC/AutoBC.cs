@@ -94,6 +94,10 @@ namespace AutoBC
                 var index = r.Next(0, config.messages.Count);
                 var color = new Microsoft.Xna.Framework.Color(config.messages[index].Color.R, config.messages[index].Color.G, config.messages[index].Color.B);
                 TSPlayer.All.SendMessage(config.messages[index].Message, color);
+                foreach(string cmd in config.messages[index].Commands)
+                {
+                    Commands.HandleCommand(TSPlayer.Server, cmd);
+                }
                 ContinueBC();
             }
         }

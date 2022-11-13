@@ -9,7 +9,7 @@ namespace AutoBC
 {
 	public class Config
 	{
-		public List<BCMessage> messages = new List<BCMessage> { new BCMessage("[Broadcast] This is a test broadcast, the owner has yet to set up this plugin!", new Color(255, 255, 255)) };
+		public List<BCMessage> messages = new List<BCMessage> { new BCMessage("[Broadcast] This is a test broadcast, the owner has yet to set up this plugin!", new Color(255, 255, 255), new List<string>() { "time noon"} ) };
 
 			public int bcInterval = 3; //MINUTES
 

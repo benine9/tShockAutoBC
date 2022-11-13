@@ -12,10 +12,13 @@ namespace AutoBC
 
         public Color Color { get; set; }
 
-        public BCMessage(string msg, Color color)
+        public List<string> Commands { get; set; }
+
+        public BCMessage(string msg, Color color, List<string> commands)
         {
             this.Message = msg;
             this.Color = color;
+            this.Commands = commands;
         }
 
     }
