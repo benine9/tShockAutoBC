@@ -54,10 +54,10 @@ namespace AutoBC
         public override void Initialize()
         {
             GeneralHooks.ReloadEvent += Reload;
-            ServerApi.Hooks.GameInitialize.Register(this, ServerLoaded);
+            
             ServerApi.Hooks.NetGreetPlayer.Register(this, PlayerJoined);
             ServerApi.Hooks.ServerLeave.Register(this, PlayerLeft);
-
+config = Config.Read();
         }
 
         private void PlayerLeft(LeaveEventArgs args)
@@ -77,13 +77,7 @@ namespace AutoBC
             }
         }
 
-        private void ServerLoaded(EventArgs args)
-        {
-            config = Config.Read();
-            //config
-
-        }
-
+        
         public async void ContinueBC()
         {
             if (shouldBeBroadcasting == true)
@@ -116,6 +110,8 @@ namespace AutoBC
             if (disposing)
             {
                 GeneralHooks.ReloadEvent -= Reload;
+                ServerApi.Hooks.NetGreetPlayer.Deregister(this, PlayerJoined);
+                ServerApi.Hooks.ServerLeave.Deregister(this, PlayerLeft);
 
             }
             base.Dispose(disposing);
