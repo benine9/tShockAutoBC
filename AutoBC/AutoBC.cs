@@ -62,7 +62,7 @@ config = Config.Read();
 
         private void PlayerLeft(LeaveEventArgs args)
         {
-            if (TShock.Players.Count() == 0)
+            if (Main.player.Where(p=>p != null && p.active).Count() <= 1)
             {
                 shouldBeBroadcasting = false;
             }
@@ -70,7 +70,7 @@ config = Config.Read();
 
         private void PlayerJoined(GreetPlayerEventArgs args)
         {
-            if(TShock.Players.Count() > 0 && shouldBeBroadcasting == false)
+            if(shouldBeBroadcasting == false)
             {
                 shouldBeBroadcasting = true; 
                 ContinueBC();
